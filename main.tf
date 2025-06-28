@@ -11,6 +11,7 @@ provider "aws" {
   region = var.aws_region
 }
 
+# --- VPC module ---
 module "vpc" {
   source               = "./vpc"
   aws_region           = var.aws_region
@@ -20,6 +21,7 @@ module "vpc" {
   private_subnet_cidrs = var.private_subnet_cidrs
 }
 
+# --- EKS module ---
 module "eks" {
   source          = "./eks"
   project         = var.project

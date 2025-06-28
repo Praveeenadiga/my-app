@@ -1,24 +1,26 @@
+# --- VPC outputs ---
 output "vpc_id" {
-  description = "ID of the VPC"
+  description = "ID of the created VPC"
   value       = module.vpc.vpc_id
 }
 
 output "public_subnets" {
-  description = "IDs of the public subnets"
+  description = "Public subnet IDs"
   value       = module.vpc.public_subnets
 }
 
 output "private_subnets" {
-  description = "IDs of the private subnets"
+  description = "Private subnet IDs"
   value       = module.vpc.private_subnets
 }
 
+# --- EKS outputs ---
 output "eks_cluster_name" {
-  description = "Name of the EKS cluster"
+  description = "EKS cluster name"
   value       = module.eks.cluster_name
 }
 
 output "eks_cluster_endpoint" {
-  description = "API server endpoint for EKS cluster"
+  description = "EKS cluster endpoint"
   value       = module.eks.kubeconfig
 }

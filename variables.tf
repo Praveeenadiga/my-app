@@ -1,11 +1,11 @@
 variable "aws_region" {
-  description = "AWS region to deploy infrastructure"
+  description = "AWS region to deploy"
   type        = string
   default     = "us-east-1"
 }
 
 variable "project" {
-  description = "Project name prefix for tagging resources"
+  description = "Project name prefix"
   type        = string
   default     = "eks-demo"
 }

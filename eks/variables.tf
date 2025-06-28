@@ -7,11 +7,10 @@ variable "private_subnets" {
 }
 
 variable "node_policies" {
-  type    = list(string)
+  type = list(string)
   default = [
     "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
     "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
     "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   ]
 }
-
