@@ -27,3 +27,26 @@ module "eks" {
   project         = var.project
   private_subnets = module.vpc.private_subnets
 }
+
+
+provider "kubernetes" {
+  host = data.aws_eks_cluster.eks.endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.eks.certificate_authority[0].data)
+  token                  = data.aws_eks_cluster_auth.eks.token
+}
+
+data "aws_eks_cluster" "eks" {
+  name = module.eks.cluster_name
+}
+
+
+data "aws_eks_cluster_auth" "eks" {
+  name = module.eks.cluster_name
+}
+
+# Create a namespace
+resource "kubernetes_namespace" "my_namespace" {
+  metadata {
+    name = "my-namespace"
+  }
+}
