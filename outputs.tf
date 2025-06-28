@@ -22,5 +22,5 @@ output "eks_cluster_name" {
 
 output "eks_cluster_endpoint" {
   description = "EKS cluster endpoint"
-  value       = module.eks.kubeconfig
+  value       = module.eks.cluster_endpoint
 }
